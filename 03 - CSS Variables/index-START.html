@@ -24,19 +24,19 @@
     <input id="base" type="color" name="base" value="#ffc600">
   </div>
 
-  <img src="https://source.unsplash.com/7bwQXzbF6KE/800x500">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Tux.svg/330px-Tux.svg.png">
 
   <style>
 
-    :root(
+    :root{
         --base: #ffc600;
         --spacing: 10px;
         --blur: 10px;
-        )
+        }
     img {
         padding: var(--spacing);
         background: var(--base);
-        filter: var(--blur);
+        filter: blur(var(--blur));
     }
 
     body {
@@ -58,6 +58,14 @@
   </style>
 
   <script>
+    const inputs = document.querySelectorAll('.controls input');
+    function handleUpdate() {
+        const suffix = this.dataset.sizing || '';
+        document.documentElement.style.setProperty(`--${this.name}`, this.value+suffix);
+    };
+
+    inputs.forEach(input => input.addEventListener('change', handleUpdate));
+    inputs.forEach(input => input.addEventListener('mousemove', handleUpdate));
   </script>
 
 </body>
