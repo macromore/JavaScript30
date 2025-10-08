@@ -2,7 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <title>Scoped CSS Variables and JS</title>CTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
   <title>Scoped CSS Variables and JS</title>
+
   <link rel="icon" href="https://fav.farm/🔥" />
 </head>
 <body>
@@ -23,9 +28,16 @@
 
   <style>
 
-    /*
-      misc styles, nothing to do with CSS variables
-    */
+    :root(
+        --base: #ffc600;
+        --spacing: 10px;
+        --blur: 10px;
+        )
+    img {
+        padding: var(--spacing);
+        background: var(--base);
+        filter: var(--blur);
+    }
 
     body {
       text-align: center;
